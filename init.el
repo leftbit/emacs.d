@@ -42,7 +42,9 @@
 (use-package fira-code-mode
   :custom (fira-code-mode-disabled-ligatures '("[]" "#{" "#(" "#_" "#_(" "x")) ;; List of ligatures to turn off
   :hook prog-mode) ;; Enables fira-code-mode automatically for programming major modes
-
+;; ==================================================
+;; support for markdown
+(use-package markdown-mode :ensure t)
 ;; ==================================================
 ;; company-mode
 (use-package company
