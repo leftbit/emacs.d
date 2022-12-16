@@ -27,7 +27,7 @@
 ;; Turn off the menu bar at the top of each frame because it's distracting
 (menu-bar-mode -1)
 ;; Show line numbers
-(global-linum-mode)
+(add-hook 'prog-mode-hook 'linum-mode)
 ;; remove the graphical toolbar
 (when (fboundp 'tool-bar-mode)
    (tool-bar-mode -1))
