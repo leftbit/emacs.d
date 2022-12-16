@@ -1,6 +1,7 @@
 (require 'package)
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")
+			 ("melpa-stable" . "https://stable.melpa.org/packages/")
                          ("org" . "https://orgmode.org/elpa/")))
 
 ;; Bootstrap 'use-package'
@@ -63,6 +64,16 @@
 (use-package aggressive-indent)
 
 ;; ==================================================
+;; clj-refactor
+(require 'clj-refactor)
+(defun my-clojure-refactor-mode-hook ()
+    (clj-refactor-mode 1)
+    (yas-minor-mode 1) ; for adding require/use/import statements
+    ;; This choice of keybinding leaves cider-macroexpand-1 unbound
+    (cljr-add-keybindings-with-prefix "C-c C-m"))
+
+
+;; ==================================================
 ;; clojure-mode
 (use-package clojure-mode
   :ensure t
@@ -73,12 +84,14 @@
   (add-hook 'clojure-mode-hook #'subword-mode)
   (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
   (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
+  (add-hook 'clojure-mode-hook #'my-clojure-refactor-mode-hook)
   (require 'clojure-mode-extra-font-locking))
 
 ;; ==================================================
 ;; cider
 (use-package cider
   :ensure t
+  :pin melpa-stable
   :init
   (add-hook 'cider-repl-mode-hook #'subword-mode)
   (add-hook 'cider-repl-mode-hook #'smartparens-strict-mode)
