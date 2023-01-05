@@ -91,7 +91,7 @@
 ;; cider
 (use-package cider
   :ensure t
-  :pin melpa-stable
+;  :pin melpa-stable
   :init
   (add-hook 'cider-repl-mode-hook #'subword-mode)
   (add-hook 'cider-repl-mode-hook #'smartparens-strict-mode)
@@ -167,7 +167,7 @@
       '(("b" "Bookmark" entry (file+headline "~/org/notes.org" "Bookmarks")
          "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n" :empty-lines 1)))
 
-
+(add-hook 'emacs-startup-hook 'treemacs)
 
 ;; Auto added - do not touch!
 (custom-set-variables
