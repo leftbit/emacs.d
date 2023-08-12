@@ -27,7 +27,7 @@
 ;; Turn off the menu bar at the top of each frame because it's distracting
 (menu-bar-mode -1)
 ;; Show line numbers
-(add-hook 'prog-mode-hook 'linum-mode)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 ;; remove the graphical toolbar
 (when (fboundp 'tool-bar-mode)
    (tool-bar-mode -1))
@@ -167,6 +167,12 @@
       '(("b" "Bookmark" entry (file+headline "~/org/notes.org" "Bookmarks")
          "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n" :empty-lines 1)))
 
+;; =====
+;; lisp
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "sbcl")
+
+;; rest
 (add-hook 'emacs-startup-hook 'treemacs)
 
 ;; Auto added - do not touch!
