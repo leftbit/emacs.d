@@ -21,9 +21,10 @@
 ;; ==================================================
 ;; ui
 (blink-cursor-mode 0)
+(set-frame-font "Fira Code Medium" nil t)
 (set-face-attribute 'default nil :height 140)
 (load-theme 'solarized-light t)
-(setq initial-frame-alist '((top . 0) (left . 0) (width . 120) (height . 33)))
+(setq initial-frame-alist '((top . 0) (left . 0) (width . 100) (height . 28)))
 ;; Turn off the menu bar at the top of each frame because it's distracting
 (menu-bar-mode -1)
 ;; Show line numbers
@@ -35,14 +36,6 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-;; ==================================================
-;; fira font
-;; Siehe https://github.com/tonsky/FiraCode/wiki/Emacs-instructions
-;; https://github.com/jming422/fira-code-mode
-;; https://github.com/tonsky/FiraCode
-(use-package fira-code-mode
-  :custom (fira-code-mode-disabled-ligatures '("[]" "#{" "#(" "#_" "#_(" "x")) ;; List of ligatures to turn off
-  :hook prog-mode) ;; Enables fira-code-mode automatically for programming major modes
 ;; ==================================================
 ;; support for markdown
 (use-package markdown-mode :ensure t)
@@ -71,7 +64,6 @@
     (yas-minor-mode 1) ; for adding require/use/import statements
     ;; This choice of keybinding leaves cider-macroexpand-1 unbound
     (cljr-add-keybindings-with-prefix "C-c C-m"))
-
 
 ;; ==================================================
 ;; clojure-mode
@@ -169,8 +161,8 @@
 
 ;; =====
 ;; lisp
-(load (expand-file-name "~/.quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "sbcl")
+; (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+; (setq inferior-lisp-program "sbcl")
 
 ;; rest
 (add-hook 'emacs-startup-hook 'treemacs)
