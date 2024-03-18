@@ -182,7 +182,7 @@
  '(inhibit-startup-screen t)
  '(ispell-dictionary nil)
  '(package-selected-packages
-   '(treemacs-magit treemacs-projectile lsp-treemacs treemacs use-package solarized-theme which-key ag magit counsel aggressive-indent smartparens clj-refactor company rainbow-delimiters clojure-mode-extra-font-locking projectile zenburn-theme smex cider)))
+   '(treemacs-magit treemacs-projectile lsp-treemacs treemacs use-package solarized-theme which-key ag magit counsel aggressive-indent smartparens clj-refactor company rainbow-delimiters clojure-mode-extra-font-locking projectile zenburn-theme smex cider org-bullets)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
