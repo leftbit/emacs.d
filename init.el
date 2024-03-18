@@ -155,8 +155,14 @@
 	("\\.pdf\\'" . default)
         (auto-mode . emacs)))
 (setq org-capture-templates
-      '(("b" "Bookmark" entry (file+headline "~/org/notes.org" "Bookmarks")
-         "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n" :empty-lines 1)))
+      '(("b" "Bookmark" entry (file+headline "~/Dokumente/org/notes.org" "Bookmarks")
+         "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n" :empty-lines 1)
+        ("t" "Todo" entry (file+headline "~/Dokumente/org/inbox.org" "Tasks")
+         "* TODO %?\n  %i\n  %a")))
+
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode))
 
 ;; =====
 ;; lisp
@@ -164,7 +170,8 @@
 ; (setq inferior-lisp-program "sbcl")
 
 ;; rest
-(add-hook 'emacs-startup-hook 'treemacs)
+;; treemacs collides with org-capture
+;;(add-hook 'emacs-startup-hook 'treemacs)
 
 ;; Auto added - do not touch!
 (custom-set-variables
