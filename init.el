@@ -159,6 +159,18 @@
          "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n" :empty-lines 1)
         ("t" "Todo" entry (file+headline "~/Dokumente/org/inbox.org" "Tasks")
          "* TODO %?\n  %i\n  %a")))
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "IN-PROGRESS(i@/!)" "BLOCKED(b@)"  "|" "DONE(d!)" "OBE(o@!)" "WONT-DO(w@/!)" )
+        ))
+(setq org-todo-keyword-faces
+      '(
+        ("TODO" . (:foreground "GoldenRod" :weight bold))
+        ("IN-PROGRESS" . (:foreground "DeepPink" :weight bold))
+        ("BLOCKED" . (:foreground "Red" :weight bold))
+        ("DONE" . (:foreground "LimeGreen" :weight bold))
+        ("OBE" . (:foreground "LimeGreen" :weight bold))
+        ("WONT-DO" . (:foreground "LimeGreen" :weight bold))
+        ))
 
 (use-package org-bullets
   :after org
@@ -170,8 +182,7 @@
 ; (setq inferior-lisp-program "sbcl")
 
 ;; rest
-;; treemacs collides with org-capture
-;;(add-hook 'emacs-startup-hook 'treemacs)
+(add-hook 'emacs-startup-hook 'treemacs)
 
 ;; Auto added - do not touch!
 (custom-set-variables
