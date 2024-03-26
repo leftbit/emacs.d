@@ -17,6 +17,9 @@
 
 (prefer-coding-system 'utf-8-unix)
 
+(setq make-backup-files nil) ;; stop creating those backup~ files
+(setq auto-save-default nil) ;; stop creating those #autosave# files
+
 ;; ==================================================
 ;; ui
 (blink-cursor-mode 0)
@@ -34,10 +37,31 @@
 ;; Don't show native OS scroll bars for buffers because they're redundant
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
+;; Keinen Splash-Screen
+(setq inhibit-splash-screen t)
+(find-file "~/Dokumente/org/notes.org")
+
 
 ;; ==================================================
 ;; support for markdown
 (use-package markdown-mode :ensure t)
+
+;; ==================================================
+;; ido/smex
+(ido-mode t)
+(setq ido-enable-flex-matching t) ;; fuzzy matching is a must have
+(setq ido-enable-last-directory-history nil) ;; forget latest selected directory names
+
+(use-package smex
+  :ensure t
+  :bind (("M-x" . smex))
+  :config (smex-initialize))
+
+;; SMEX
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command) ;; This is your old M-x:
+
 ;; ==================================================
 ;; company-mode
 (use-package company
